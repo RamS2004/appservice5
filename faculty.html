@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <style>
+
+        #chat-box {
+            border: 1px solid blue;
+            padding: 10px;
+            height: 200px;
+            width: 300px;
+            overflow-y: scroll;
+        }
+
+        input, button {
+            margin: 8px 0;
+        }
+        .mess{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="navBranding">Vidya Tech</a>
+            <ul class="nav-menu">
+                <li class="nav-iteam">
+                    <a href="/index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-iteam">
+                    <a href="/faculty.html" class="nav-link" target="_parent">Faculty</a>
+                </li>
+                <li class="nav-iteam">
+                    <a href="/student.html" class="nav-link" target="_parent">Student</a>
+                </li>
+                <li class="nav-iteam">
+                    <a href="/club.html" class="nav-link" target="_parent">Club</a>
+                </li>
+                <li class="nav-iteam">
+                    <a href="/about.html" class="nav-link">AboutUs</a>
+                </li>
+                <li class="nav-iteam">
+                    <a href="/index.html" class="nav-link">Contact</a>
+                </li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <script src="script.js"></script>
+    <section class="Notice">
+        <h1 id="h1-notice">Today</h1>
+    <div class="main-section about-us">
+        <div>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
+                text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+    </div>
+    </section>
+
+   
+        <center>
+        <form id="contactForm">
+            <label for="sender_email">Your Email:</label><br>
+            <input type="email" id="sender_email" name="sender_email" required><br><br>
+            
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject" required><br><br>
+            
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            
+            <label for="pdf_file">Attach PDF:</label><br>
+            <input type="file" id="pdf_file" name="pdf_file"><br><br>
+            
+            <input type="button" value="Submit" onclick="sendEmail()">
+        </form>
+       
+        </center>
+        
+        
+
+
+        <section class="Notice">
+            <h1 id="h1-notice">Events</h1>
+        <div class="main-section about-us">
+            <div>
+                <h2 class="heading">Lorem ipsum dolor sit amet.</h2>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy
+                    text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
+                    the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            </div>
+        </div>
+        </section>
+    
+    
+        <section class="Notice">
+            <h1 id="h1-notice">Notice</h1>
+            <div class="Notice-flex-container">
+                <div class="notice-box">
+    
+                        <div class="Ph1">Admissions Now: Students are invited for UG admissions.</div>
+                        <ol id="list">
+                            <li>1) Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                            <li>2)Iste animi neque esse dignissimos aliquid, dolore consequuntur earum necessitatibus.</li>
+                            <li>3)Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                            <li>4)Iste animi neque esse dignissimos aliquid, dolore consequuntur earum necessitatibus.</li>
+                            <li>5)Deserunt accusantium eligendi earum neque quidem, velit eum harum.</li>
+                            <li>6)Soluta dolorem voluptas architecto dolore.</li>
+                            <li>7)Culpa repellat obcaecati id ratione, sunt vitae, facilis eos laborum reprehenderit dolor nesciunt</li>
+                            <li>8)pariatur fugiat nobis dolores autem explicabo est suscipit adipisci doloribus enim, aliquam</li>
+                            <li>9)Molestiae recusandae animi a nisi placeat dolore cupiditate amet.</li>
+                            <li>10)Odit totam perspiciatis animi saepe voluptatem aliquid.</li>
+                            <li>10)nam fuga nulla exercitationem accusantium.</li>
+                            <li>11)Iure, consectetur non praesentium corrupti dolorum dignissimos ipsa nihil nobis hic suscipit dolorem</li>
+                            <li>12)voluptatem eum beatae quidem vero vel laborum.</li>
+                        </ol>
+    
+                </div>
+    
+    
+            </div>
+        </section>
+         
+        
+     
+        <script>
+            function sendEmail() {
+                var formData = new FormData(document.getElementById("contactForm"));
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "send_email.php", true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert("Email sent successfully!");
+                    } else {
+                        alert("Failed to send email. Please try again later.");
+                    }
+                };
+                xhr.send(formData);
+            }
+            </script>
+</body>
+</html>

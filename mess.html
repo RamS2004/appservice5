@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Chat with Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input, button, select {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="currentUser">Current User:</label>
+        <input type="text" id="currentUser" readonly>
+
+        <label for="recipient">Select Recipient:</label>
+        <select id="recipient">
+            <option value="userb@example.com">User B</option>
+            <option value="userc@example.com">User C</option>
+            <!-- Add more options for other users -->
+        </select>
+
+        <label for="message">Message:</label>
+        <input type="text" id="message" placeholder="Type your message">
+
+        <button type="button" onclick="sendMessage()">Send Message</button>
+    </form>
+
+    <div>
+        <label for="chat-box">Chat:</label>
+        <div id="chat-box"></div>
+    </div>
+
+    <script>
+        // Simulating a user
+        var currentUser = "usera@example.com";
+
+        document.getElementById("currentUser").value = currentUser;
+
+        function sendMessage() {
+            var recipientSelect = document.getElementById("recipient");
+            var messageInput = document.getElementById("message");
+            var chatBox = document.getElementById("chat-box");
+
+            var recipientEmail = recipientSelect.value;
+            var message = messageInput.value;
+
+            if (recipientEmail.trim() !== "" && message.trim() !== "") {
+                // In a real-world scenario, you would send an AJAX request to a server
+                // that handles the email sending process.
+
+                // This is a placeholder to demonstrate the concept:
+                var sender = currentUser;
+                var recipient = recipientEmail;
+
+                var messageElement = document.createElement("p");
+                messageElement.textContent = sender + " to " + recipient + ": " + message;
+                chatBox.appendChild(messageElement);
+
+                // Clear the input fields
+                messageInput.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
